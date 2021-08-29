@@ -1,0 +1,42 @@
+/* Navbar */
+.navbar {
+    color: white;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+}
+
+.nav-item {
+    margin-left: 50px;
+}
+
+/* Content-Home */
+.jumbotron-home {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/002/870/046/non_2x/soccer-stadium-background-free-vector.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 10%;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+}
+
+.logo-2 {
+    width: 140px;
+    height: 170px;
+}
+
+.container-home {
+    background-color: white;
+    margin-top: -250px;
+    border-radius: 30px;
+    height: 500px;
+}
+
+.container-home div {
+    width: 100%;
+}
