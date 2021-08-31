@@ -11,7 +11,6 @@ const getAPIKlasemenBL = async () => {
         })
         .then(response => {
             let Data = response.data.standings
-            console.log(Data)
             let rowTables = ""
             let ranking = 1
             Data.forEach(data => {
@@ -38,16 +37,15 @@ const getAPIKlasemenBL = async () => {
 }
 getAPIKlasemenBL()
 
-//Klasemen La Liga
+//Klasemen Liga Spanyol
 //GET API Klasemen
-const APIKlasemenLL = 'https://api.football-data.org/v2/competitions/PD/standings?standingType=TOTAL'
-const getAPIKlasemenLL = () => {
-    axios.get(APIKlasemenLL, {
+const APIKlasemenPD = 'https://api.football-data.org/v2/competitions/PD/standings?standingType=TOTAL'
+const getAPIKlasemenPD = () => {
+    axios.get(APIKlasemenPD, {
             headers
         })
         .then(response => {
             let Data = response.data.standings
-            console.log(Data)
             let rowTables = ""
             let ranking = 1
             Data.forEach(data => {
@@ -72,7 +70,7 @@ const getAPIKlasemenLL = () => {
         })
         .catch(err => console.log(err))
 }
-getAPIKlasemenLL()
+getAPIKlasemenPD()
 
 //Klasemen Liga Inggris
 //GET API Klasemen
@@ -83,7 +81,6 @@ const getAPIKlasemenPL = () => {
         })
         .then(response => {
             let Data = response.data.standings
-            console.log(Data)
             let rowTables = ""
             let ranking = 1
             Data.forEach(data => {
@@ -119,7 +116,6 @@ const getAPIKlasemenSA = () => {
         })
         .then(response => {
             let Data = response.data.standings
-            console.log(Data)
             let rowTables = ""
             let ranking = 1
             Data.forEach(data => {
@@ -155,7 +151,6 @@ const getAPIKlasemenL1 = () => {
         })
         .then(response => {
             let Data = response.data.standings
-            console.log(Data)
             let rowTables = ""
             let ranking = 1
             Data.forEach(data => {

@@ -120,19 +120,24 @@
                     </tr>
                     <tr>
                         <td>
-                            <p class="h5">Top Scorer </p>
+                            <p class="h5"><strong>Top Scorer</strong> </p>
+                            <p id="topPremierLeague"></p>
                         </td>
                         <td>
-                            <p class="h5">Top Scorer </p>
+                            <p class="h5"><strong>Top Scorer</strong> </p>
+                            <p id="topSerieA"></p>
                         </td>
                         <td>
-                            <p class="h5">Top Scorer </p>
+                            <p class="h5"><strong>Top Scorer</strong> </p>
+                            <p id="topLaliga"></p>
                         </td>
                         <td>
-                            <p class="h5">Top Scorer </p>
+                            <p class="h5"><strong>Top Scorer</strong> </p>
+                            <p id="topBundesliga"></p>
                         </td>
                         <td>
-                            <p class="h5">Top Scorer </p>
+                            <p class="h5"><strong>Top Scorer</strong> </p>
+                            <p id="topLigue1"></p>
                         </td>
                     </tr>
                     <tr class="text-center">
@@ -176,6 +181,102 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Script JS -->
     <script src="js/script.js"></script>
+    <script>
+        // Top Scorer Liga Inggris
+        const APITopScorerPL = 'http://api.football-data.org/v2/competitions/PL/scorers'
+        const getTopScorerPL = () => {
+            axios.get(APITopScorerPL, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.scorers[0]
+                    console.log(Data)
+                    let toHTML = ""
+                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+
+                    $(topPremierLeague).html(toHTML)
+
+                })
+                .catch(err => console.log(err))
+        }
+        getTopScorerPL()
+
+        // Top Scorer Liga Italia
+        const APITopScorerSA = 'http://api.football-data.org/v2/competitions/SA/scorers'
+        const getTopScorerSA = () => {
+            axios.get(APITopScorerSA, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.scorers[0]
+                    console.log(Data)
+                    let toHTML = ""
+                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+
+                    $(topSerieA).html(toHTML)
+
+                })
+                .catch(err => console.log(err))
+        }
+        getTopScorerSA()
+
+        // Top Scorer Liga Spanyol
+        const APITopScorerPD = 'http://api.football-data.org/v2/competitions/PD/scorers'
+        const getTopScorerPD = () => {
+            axios.get(APITopScorerPD, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.scorers[0]
+                    console.log(Data)
+                    let toHTML = ""
+                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+
+                    $(topLaliga).html(toHTML)
+
+                })
+                .catch(err => console.log(err))
+        }
+        getTopScorerPD()
+
+        // Top Scorer Liga Jerman
+        const APITopScorerBL = 'http://api.football-data.org/v2/competitions/BL1/scorers'
+        const getTopScorerBL = () => {
+            axios.get(APITopScorerBL, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.scorers[0]
+                    console.log(Data)
+                    let toHTML = ""
+                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+
+                    $(topBundesliga).html(toHTML)
+
+                })
+                .catch(err => console.log(err))
+        }
+        getTopScorerBL()
+
+        // Top Scorer Liga Prancis
+        const APITopScorerL1 = 'http://api.football-data.org/v2/competitions/FL1/scorers'
+        const getTopScorerL1 = () => {
+            axios.get(APITopScorerL1, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.scorers[0]
+                    console.log(Data)
+                    let toHTML = ""
+                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+
+                    $(topLigue1).html(toHTML)
+
+                })
+                .catch(err => console.log(err))
+        }
+        getTopScorerL1()
+    </script>
 </body>
 
 </html>
