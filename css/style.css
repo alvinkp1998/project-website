@@ -6,7 +6,23 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+    margin-left: 75px;
+}
+
+.dropdown-toggle,
+.dropdown-menu {
+    border-radius: 7px !important;
+}
+
+.dropdown-item:hover {
+    transition: all 0.4s;
+    color: white;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
 }
 
 /* Content-Home */
@@ -22,12 +38,12 @@
 
 .logo {
     width: 200px;
-    height: 200px;
+    height: 160px;
 }
 
 .logo-2 {
     width: 140px;
-    height: 170px;
+    height: 150px;
 }
 
 .container-home {
@@ -44,4 +60,66 @@
 .col-md-2 {
     background-color: bisque;
     align-items: center;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 15px;
+    width: 150px;
+    transition: all 0.5s;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+@media (min-width: 0px) {
+    html {
+        font-size: 0.6rem;
+    }
+}
+
+@media (min-width: 576px) {
+    html {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size: 1rem;
+    }
 }
