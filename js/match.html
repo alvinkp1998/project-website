@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertandingan</title>
+    <!-- Css Bootstarp -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h2>Match Fixture</h2>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Team Home</th>
+                <th scope="col">Score</th>
+                <th scope="col">Team Away</th>
+                <th scope="col">Matchday</th>
+              </tr>
+            </thead>
+            <tbody id="listBooks">
+
+            </tbody>
+          </table>    
+    </div>
+
+    
+  
+
+
+    <!-- JQuery full -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- API Start -->
+    <script>
+   
+
+        //Looping then show data table row
+        //ini untuk all kompetisi
+        const ftblAPI = 'https://api.football-data.org/v2/competitions/PL/matches' 
+        //Matchday tertentu https://api.football-data.org/v2/competitions/PL/matches?matchday=11
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-Auth-Token': '818e0f5cbdb54eaab21ef58c5b47ae8a'       
+        };
+        axios.get(ftblAPI, {headers}).then(response => console.log(response)).catch(err => console.log(err))
+           
+        const getDataFtbl = () => {
+            axios.get(ftblAPI, {headers})
+            .then(response => {
+                let Data = response.data.matches
+                console.log(Data)
+                let rowTables = ""
+                let noRows = 1
+                Data.forEach(match => {
+                    rowTables += `<tr>
+                                    <td scope="row">${noRows}</th>
+                                    <td>${match.homeTeam.name}</td>
+                                    <td>${match.score.fullTime.homeTeam} - ${match.score.fullTime.awayTeam}</td>
+                                    <td>${match.awayTeam.name}</td>
+                                    <td>${match.matchday}</td>
+                                </tr>`
+                    noRows++;
+                });
+                $(listBooks).html(rowTables)
+            })
+            .catch(err => console.log(err))
+        }
+        getDataFtbl()          
+       
+    </script>
+</body>
+</html>
