@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;700&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 /* Navbar */
 .navbar {
     color: white;
@@ -6,35 +13,55 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+    margin-left: 75px;
+}
+
+.dropdown-toggle,
+.dropdown-menu {
+    border-radius: 7px !important;
+}
+
+.dropdown-item:hover {
+    transition: all 0.4s;
+    color: white;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
 }
 
 /* Content-Home */
 .jumbotron-home {
-    background-image: url("https://static.vecteezy.com/system/resources/previews/002/870/046/non_2x/soccer-stadium-background-free-vector.jpg");
+    background-image: url("https://wallpapercave.com/wp/wp2694966.jpg");
     background-size: cover;
     background-attachment: fixed;
-    padding-top: 250px;
+    padding-top: 225px;
     width: 100%;
     height: 100vh;
     color: white;
 }
 
+.display-4 {
+    font-family: 'Oregano', cursive;
+}
+
 .logo {
     width: 200px;
-    height: 200px;
+    height: 160px;
 }
 
 .logo-2 {
     width: 140px;
-    height: 170px;
+    height: 150px;
 }
 
 .container-home {
     background-color: white;
     margin-top: -250px;
     border-radius: 30px;
-    height: 500px;
+    height: auto;
 }
 
 .container-home div {
@@ -44,4 +71,66 @@
 .col-md-2 {
     background-color: bisque;
     align-items: center;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 15px;
+    width: 150px;
+    transition: all 0.5s;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    html {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    html {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    html {
+        font-size: 0.7rem;
+    }
+
+    .jumbotron-home {
+
+        padding-top: 200px;
+    }
 }
