@@ -53,7 +53,7 @@ body {
 }
 
 .logo-2 {
-    width: 140px;
+    width: 120px;
     height: 150px;
 }
 
@@ -110,6 +110,27 @@ body {
     opacity: 1;
     right: 0;
 }
+
+/* Page Klasemen */
+.table-klasemen {
+    margin-top: 90px;
+}
+
+.position {
+    width: 0;
+}
+
+.theadklasemen {
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    color: white;
+}
+
+.logoTeam {
+    width: 30px;
+    height: 30px;
+}
+
 
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
