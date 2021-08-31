@@ -27,10 +27,10 @@
 
 /* Content-Home */
 .jumbotron-home {
-    background-image: url("https://static.vecteezy.com/system/resources/previews/002/870/046/non_2x/soccer-stadium-background-free-vector.jpg");
+    background-image: url("https://wallpapercave.com/wp/wp2694966.jpg");
     background-size: cover;
     background-attachment: fixed;
-    padding-top: 250px;
+    padding-top: 225px;
     width: 100%;
     height: 100vh;
     color: white;
@@ -100,26 +100,26 @@
     right: 0;
 }
 
-@media (min-width: 0px) {
-    html {
-        font-size: 0.6rem;
-    }
-}
 
-@media (min-width: 576px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
     html {
         font-size: 0.75rem;
     }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 576px) and (max-width: 768px) {
     html {
         font-size: 0.75rem;
     }
 }
 
-@media (min-width: 992px) {
+@media screen and (max-width: 576px) {
     html {
-        font-size: 1rem;
+        font-size: 0.7rem;
+    }
+
+    .jumbotron-home {
+
+        padding-top: 200px;
     }
 }
