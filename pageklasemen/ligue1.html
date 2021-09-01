@@ -74,7 +74,47 @@
     <!-- Axios  -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Script JS -->
-    <script src="../js/script.js"></script>
+    <script>
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-Auth-Token': '818e0f5cbdb54eaab21ef58c5b47ae8a'
+        };
+
+        //Klasemen Liga Prancis
+        //GET API Klasemen
+        const APIKlasemenFL1 = 'https://api.football-data.org/v2/competitions/FL1/standings?standingType=TOTAL'
+        const getAPIKlasemenFL1 = async () => {
+            try {
+                const APIKlasemen = await axios.get(APIKlasemenFL1, {
+                    headers
+                })
+                let dataKlasemen = APIKlasemen.data.standings
+                let rowTables = ""
+                let ranking = 1
+                dataKlasemen.forEach(data => {
+                    data.table.forEach(data => {
+                        rowTables += `
+                    <tr>
+                        <th class="text-center">${ranking++}</th>
+                        <td class="w-auto"><img src="${data.team.crestUrl}" class="logoTeam img-responsive mr-3" alt="logoTeam">${data.team.name}</td>
+                        <td class="text-center">${data.playedGames}</td>
+                        <td class="text-center">${data.won}</td>
+                        <td class="text-center">${data.draw}</td>
+                        <td class="text-center">${data.lost}</td>
+                        <td class="text-center">${data.goalsFor}</td>
+                        <td class="text-center">${data.goalsAgainst}</td>
+                        <td class="text-center">${data.goalDifference}</td> 
+                        <td class="text-center">${data.points}</td>
+                    </tr>`
+                    });
+                });
+                $(klasemenLigue1).html(rowTables)
+            } catch (err) {
+                alert(err)
+            }
+        }
+        getAPIKlasemenFL1()
+    </script>
 </body>
 
 </html>

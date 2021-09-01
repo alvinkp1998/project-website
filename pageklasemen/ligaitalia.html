@@ -74,7 +74,47 @@
     <!-- Axios  -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Script JS -->
-    <script src="../js/script.js"></script>
+    <script>
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-Auth-Token': '818e0f5cbdb54eaab21ef58c5b47ae8a'
+        };
+
+        //Klasemen Liga Italia
+        //GET API Klasemen
+        const APIKlasemenSA = 'https://api.football-data.org/v2/competitions/SA/standings?standingType=TOTAL'
+        const getAPIKlasemenSA = async () => {
+            try {
+                const APIKlasemen = await axios.get(APIKlasemenSA, {
+                    headers
+                })
+                let dataKlasemen = APIKlasemen.data.standings
+                let rowTables = ""
+                let ranking = 1
+                dataKlasemen.forEach(data => {
+                    data.table.forEach(data => {
+                        rowTables += `
+                    <tr>
+                        <th class="text-center">${ranking++}</th>
+                        <td class="w-auto"><img src="${data.team.crestUrl}" class="logoTeam img-responsive mr-3" alt="logoTeam">${data.team.name}</td>
+                        <td class="text-center">${data.playedGames}</td>
+                        <td class="text-center">${data.won}</td>
+                        <td class="text-center">${data.draw}</td>
+                        <td class="text-center">${data.lost}</td>
+                        <td class="text-center">${data.goalsFor}</td>
+                        <td class="text-center">${data.goalsAgainst}</td>
+                        <td class="text-center">${data.goalDifference}</td> 
+                        <td class="text-center">${data.points}</td>
+                    </tr>`
+                    });
+                });
+                $(klasemenSerieA).html(rowTables)
+            } catch (err) {
+                alert(err)
+            }
+        }
+        getAPIKlasemenSA()
+    </script>
 </body>
 
 </html>
