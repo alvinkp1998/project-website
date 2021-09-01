@@ -103,23 +103,6 @@
                 <tbody class="text-center">
                     <tr>
                         <td>
-                            <p class="h5">Hot Matches </p>
-                        </td>
-                        <td>
-                            <p class="h5">Hot Matches </p>
-                        </td>
-                        <td>
-                            <p class="h5">Hot Matches </p>
-                        </td>
-                        <td>
-                            <p class="h5">Hot Matches </p>
-                        </td>
-                        <td>
-                            <p class="h5">Hot Matches </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <p class="h5"><strong>Top Scorer</strong> </p>
                             <p id="topPremierLeague"></p>
                         </td>
@@ -169,6 +152,43 @@
     </div>
 
 
+    <div class="container container-next-match shadow-sm mt-5">
+        <h2 class="text-center pt-3"><i class="fas fa-fire"></i><strong> NEXT MATCHES </strong><i
+                class="fas fa-fire"></i>
+        </h2><br>
+        <h4 class="text-center pb-1">Premier League</h4>
+        <div class="bg-next-match text-center ">
+            <div id="nextMatchesPL" class="row">
+
+            </div>
+        </div>
+        <h4 class="text-center pb-1 mt-5">Serie A</h4>
+        <div class="bg-next-match text-center ">
+            <div id="nextMatchesSA" class="row">
+
+            </div>
+        </div>
+        <!-- <h4 class="text-center pb-1 mt-5">La Liga</h4>
+        <div class="bg-next-match text-center ">
+            <div id="nextMatchesLL" class="row">
+
+            </div>
+        </div> -->
+        <h4 class="text-center pb-1 mt-5">Bundesliga</h4>
+        <div class="bg-next-match text-center ">
+            <div id="nextMatchesBL" class="row">
+
+            </div>
+        </div>
+        <h4 class="text-center pb-1 mt-5">Ligue 1</h4>
+        <div class="bg-next-match text-center ">
+            <div id="nextMatchesL1" class="row">
+
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -190,7 +210,6 @@
                 })
                 .then(response => {
                     let Data = response.data.scorers[0]
-                    console.log(Data)
                     let toHTML = ""
                     toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
 
@@ -209,7 +228,6 @@
                 })
                 .then(response => {
                     let Data = response.data.scorers[0]
-                    console.log(Data)
                     let toHTML = ""
                     toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
 
@@ -228,7 +246,6 @@
                 })
                 .then(response => {
                     let Data = response.data.scorers[0]
-                    console.log(Data)
                     let toHTML = ""
                     toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
 
@@ -247,7 +264,6 @@
                 })
                 .then(response => {
                     let Data = response.data.scorers[0]
-                    console.log(Data)
                     let toHTML = ""
                     toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
 
@@ -266,7 +282,6 @@
                 })
                 .then(response => {
                     let Data = response.data.scorers[0]
-                    console.log(Data)
                     let toHTML = ""
                     toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
 
@@ -276,6 +291,149 @@
                 .catch(err => console.log(err))
         }
         getTopScorerL1()
+
+        //Next Match Liga Inggris
+        const APIMatchPL = 'http://api.football-data.org/v2/competitions/2021/matches'
+
+        const getMatchPL = () => {
+            axios.get(APIMatchPL, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.matches
+                    let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
+                    let data1 = dataScheduled[0]
+                    let data2 = dataScheduled[1]
+                    let data3 = dataScheduled[2]
+                    let allData = [data1, data2, data3];
+                    let toHTML = ''
+                    allData.filter(data => {
+                        toHTML += `<div class="col-4">
+                                        <h5 class="pt-2">${data.utcDate}</h5>
+                                        <h5 class="pt-2">${data.homeTeam.name}</h5>
+                                        <h5 class="text-center">vs</h5>
+                                        <h5>${data.awayTeam.name}</h5>
+                                   </div>`
+                    });
+                    $(nextMatchesPL).html(toHTML)
+                })
+                .catch(err => console.log(err))
+        }
+        getMatchPL()
+
+        //Next Match Liga Italia
+        const APIMatchSA = 'http://api.football-data.org/v2/competitions/2019/matches'
+
+        const getMatchSA = () => {
+            axios.get(APIMatchSA, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.matches
+                    let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
+                    let data1 = dataScheduled[0]
+                    let data2 = dataScheduled[1]
+                    let data3 = dataScheduled[2]
+                    let allData = [data1, data2, data3];
+                    let toHTML = ''
+                    allData.filter(data => {
+                        toHTML += `<div class="col-4">
+                                        <h5 class="pt-2">${data.utcDate}</h5>
+                                        <h5 class="pt-2">${data.homeTeam.name}</h5>
+                                        <h5 class="text-center">vs</h5>
+                                        <h5>${data.awayTeam.name}</h5>
+                                   </div>`
+                    });
+                    $(nextMatchesSA).html(toHTML)
+                })
+                .catch(err => console.log(err))
+        }
+        getMatchSA()
+
+        // //Next Match Liga Spanyol
+        // const APIMatchLL = 'http://api.football-data.org/v2/competitions/2101/matches'
+        // const getMatchLL = () => {
+        //     axios.get(APIMatchLL, {
+        //             headers
+        //         })
+        //         .then(response => {
+        //             let Data = response.data.matches
+        //             console.log(Data)
+        //             let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
+        //             let data1 = dataScheduled[0]
+        //             let data2 = dataScheduled[1]
+        //             let data3 = dataScheduled[2]
+        //             let allData = [data1, data2, data3];
+        //             let toHTML = ''
+        //             allData.filter(data => {
+        //                 toHTML += `<div class="col-4">
+        //                                 <h5 class="pt-2">${data.utcDate}</h5>
+        //                                 <h5 class="pt-2">${data.homeTeam.name}</h5>
+        //                                 <h5 class="text-center">vs</h5>
+        //                                 <h5>${data.awayTeam.name}</h5>
+        //                            </div>`
+        //             });
+        //             $(nextMatchesLL).html(toHTML)
+        //         })
+        //         .catch(err => console.log(err))
+        // }
+        // getMatchLL()
+
+        //Next Match Bundesliga
+        const APIMatchBL = 'http://api.football-data.org/v2/competitions/2002/matches'
+        const getMatchBL = () => {
+            axios.get(APIMatchBL, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.matches
+                    let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
+                    let data1 = dataScheduled[0]
+                    let data2 = dataScheduled[1]
+                    let data3 = dataScheduled[2]
+                    let allData = [data1, data2, data3];
+                    let toHTML = ''
+                    allData.filter(data => {
+                        toHTML += `<div class="col-4">
+                                        <h5 class="pt-2">${data.utcDate}</h5>
+                                        <h5 class="pt-2">${data.homeTeam.name}</h5>
+                                        <h5 class="text-center">vs</h5>
+                                        <h5>${data.awayTeam.name}</h5>
+                                   </div>`
+                    });
+                    $(nextMatchesBL).html(toHTML)
+                })
+                .catch(err => console.log(err))
+        }
+        getMatchBL()
+
+        //Next Match Liga Prancis
+        const APIMatchL1 = 'http://api.football-data.org/v2/competitions/2015/matches'
+        const getMatchL1 = () => {
+            axios.get(APIMatchL1, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.matches
+                    let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
+                    let data1 = dataScheduled[0]
+                    let data2 = dataScheduled[1]
+                    let data3 = dataScheduled[2]
+                    let allData = [data1, data2, data3];
+                    let toHTML = ''
+                    allData.filter(data => {
+                        toHTML += `<div class="col-4">
+                                        <h5 class="pt-2">${data.utcDate}</h5>
+                                        <h5 class="pt-2">${data.homeTeam.name}</h5>
+                                        <h5 class="text-center">vs</h5>
+                                        <h5>${data.awayTeam.name}</h5>
+                                   </div>`
+                    });
+                    $(nextMatchesL1).html(toHTML)
+                })
+                .catch(err => console.log(err))
+        }
+        getMatchL1()
     </script>
 </body>
 
