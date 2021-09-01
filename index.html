@@ -211,7 +211,7 @@
                 .then(response => {
                     let Data = response.data.scorers[0]
                     let toHTML = ""
-                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+                    toHTML = `<strong>${Data.player.name} - ${Data.numberOfGoals} Goals</strong>`
 
                     $(topPremierLeague).html(toHTML)
 
@@ -229,7 +229,7 @@
                 .then(response => {
                     let Data = response.data.scorers[0]
                     let toHTML = ""
-                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+                    toHTML = `<strong>${Data.player.name} - ${Data.numberOfGoals} Goals</strong>`
 
                     $(topSerieA).html(toHTML)
 
@@ -247,7 +247,7 @@
                 .then(response => {
                     let Data = response.data.scorers[0]
                     let toHTML = ""
-                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+                    toHTML = `<strong>${Data.player.name} - ${Data.numberOfGoals} Goals</strong>`
 
                     $(topLaliga).html(toHTML)
 
@@ -265,7 +265,7 @@
                 .then(response => {
                     let Data = response.data.scorers[0]
                     let toHTML = ""
-                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+                    toHTML = `<strong>${Data.player.name} - ${Data.numberOfGoals} Goals</strong>`
 
                     $(topBundesliga).html(toHTML)
 
@@ -283,7 +283,7 @@
                 .then(response => {
                     let Data = response.data.scorers[0]
                     let toHTML = ""
-                    toHTML = `${Data.player.name} - ${Data.numberOfGoals} Goals`
+                    toHTML = `<strong>${Data.player.name} - ${Data.numberOfGoals} Goals</strong>`
 
                     $(topLigue1).html(toHTML)
 
