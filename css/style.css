@@ -112,15 +112,15 @@ body {
 }
 
 .container-next-match {
-    background-color: #000000;
-    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
     border-radius: 15px;
     color: white;
 }
 
 .bg-next-match {
-    background-color: #537895;
-    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
     border-radius: 15px;
     color: white;
     height: auto;
