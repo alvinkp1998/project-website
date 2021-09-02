@@ -15,36 +15,37 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Our CSS -->
     <link rel="stylesheet" href="../css/style.css">
-        <style>
-            .pagination {
-                overflow: auto;
-                white-space: nowrap;          
-            }
-            
-            .pagination a {
-                text-decoration: none;
-                display: inline-block;
-                color: rgb(17, 17, 17);
-                text-align: center;
-                padding: 6px 15px;
-                text-decoration: none;          
-            }
-            
-            .pagination a.active {
-                background-color: #575757;
-                color: white;
-                border-radius: 15px;
-            }
-            
-            .pagination a:hover:not(.active) {
-                background-color: #ddd;
-                border-radius: 15px;
-            }     
-            .card-round{
-                height: 150px;
-                border-radius: 15px;
-            }            
-        </style>
+    <style>
+        .pagination {
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            display: inline-block;
+            color: rgb(17, 17, 17);
+            text-align: center;
+            padding: 6px 15px;
+            text-decoration: none;
+        }
+
+        .pagination a.active {
+            background-color: #575757;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 15px;
+        }
+
+        .card-round {
+            height: 150px;
+            border-radius: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -86,9 +87,6 @@
                             <a class="dropdown-item" href="index.html?league=FL1">Ligue 1</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">All Players</a>
-                    </li>
 
                 </ul>
             </div>
@@ -100,92 +98,100 @@
     <!-- Jumbotron -->
     <div>
         <div class="jumbotron jumbotron-match">
-            <div class="container text-center">
+            <div class="container">
+                <div class="container container-match shadow-lg">
+                    <div style="overflow-x:auto;">
+                        <div style="overflow-x:auto;">
+                            <div class="px-2 ml-1 mb-3" style="padding: 10px;">
+                                <span id="logoLiga"></span>
+                                <h2 class="pt-5"> Matches <span id="competitionTitle"></span></h2>
+                                <h3>Musim 2021/2022</h3>
+                            </div>
+                            <div class="text-center theadklasemen" style="margin-top: 20px;">
+                                <h2 id="gameWeekId"></span></h2>
+                            </div>
+                            <div>
+                                <span id="gameWeekTab"></span>
+                            </div>
+
+                            <div class="row" id="resultMatch" style="margin: 10px; display: none;">
+                                <div class="col-sm-4">
+                                    <div class="card card-round">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <span id="logoHome"></span>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <h5 class="card-title"><span id="homeClub"></span></h5>
+                                                    <p class="card-text">Record : </br> W : <span id="homeClubW"></span>
+                                                        / D : <span id="homeClubD"></span> / L : <span
+                                                            id="homeClubL"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card card-round">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-text">HT : <span id="htScore"></span> </br>FT : <span
+                                                    id="ftScore"></span></h5>
+                                            <p class="card-text text-sm"><small><span id="venue"></span></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card card-round">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <span id="logoAway"></span>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <h5 class="card-title"><span id="awayClub"></span></h5>
+                                                    <p class="card-text">Record : </br> W : <span id="awayClubW"></span>
+                                                        / D : <span id="awayClubD"></span> / L : <span
+                                                            id="awayClubL"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="card" style="height:24px; padding:0px; margin-top: 10px;">
+                                        <div class="card-body text-center" style="padding:0px;">
+                                            <p class="text-sm">Match Played : <span id="mplayed"></span> Goals : <span
+                                                    id="goalsTotal"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Team Home</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Team Away</th>
+                                        <th scope="col">Matchday</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableWeek">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
     <!-- End of Jumbotron -->
-
-    <div class="container container-match shadow-lg">
-        <div style="overflow-x:auto;">
-            <div style="overflow-x:auto;">
-                <div class="px-2 ml-1 mb-3" style="padding: 10px;">
-                    <span id="logoLiga"></span>
-                    <h2 class="pt-5"> Klasemen <span id="competitionTitle"></span></h2>
-                    <h3>Musim 2021/2022</h3>
-                </div>
-                <div class="text-center theadklasemen"  style="margin-top: 20px;"><h2 id="gameWeekId"></span></h2></div>
-                <div>
-                    <span id="gameWeekTab"></span>
-                </div>
-                
-                <div class="row" id="resultMatch" style="margin: 10px; display: none;">
-                <div class="col-sm-4">
-                    <div class="card card-round">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <span id="logoHome"></span>
-                            </div>
-                            <div class="col-sm-8">
-                                <h5 class="card-title"><span id="homeClub"></span></h5>
-                                <p class="card-text">Record : </br> W : <span id="homeClubW"></span> / D : <span id="homeClubD"></span> / L : <span id="homeClubL"></span></p>                            
-                            </div>                        
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card card-round">
-                    <div class="card-body text-center">
-                        <h5 class="card-text">HT : <span id="htScore"></span> </br>FT : <span id="ftScore"></span></h5>
-                        <p class="card-text text-sm"><small><span id="venue"></span></small></p>                
-                    </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card card-round">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <span id="logoAway"></span>
-                            </div>
-                            <div class="col-sm-8">
-                                <h5 class="card-title"><span id="awayClub"></span></h5>
-                                <p class="card-text">Record : </br> W : <span id="awayClubW"></span> / D : <span id="awayClubD"></span> / L : <span id="awayClubL"></span></p>                            
-                            </div>                        
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="card" style="height:24px; padding:0px; margin-top: 10px;">
-                    <div class="card-body text-center" style="padding:0px;">
-                        <p class="text-sm">Match Played : <span id="mplayed"></span> Goals : <span id="goalsTotal"></span></p>  
-                    </div>
-                    </div>
-                </div>                       
-                </div>
-    
-                <table class="table table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Team Home</th>
-                            <th scope="col">Score</th>
-                            <th scope="col">Team Away</th>
-                            <th scope="col">Matchday</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableWeek">
-    
-                    </tbody>
-                </table>                                 
-                
-            </div>            
-        </div>
-    </div>
 
 
 
