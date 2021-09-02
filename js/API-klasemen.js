@@ -9,19 +9,19 @@ const URLkey = urlSplit[urlSplit.length - 1]
 
 function imgLeague(code) {
     if (code == 'PL') {
-        imgLiga = `<img src="../assets/img/premierleague.png" class="logo float-left mb-2 mr-4" >`
+        imgLiga = `<img src="../assets/img/premierleague.png" class="logo float-left pr-3" >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'SA') {
-        imgLiga = `<img src="../assets/img/Serie_A.png" class="logo float-left mb-2 mr-4" >`
+        imgLiga = `<img src="../assets/img/Serie_A.png" class="logo float-left pr-3" >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'PD') {
-        imgLiga = `<img src="../assets/img/laliga.png" class="logo-2 float-left mb-2 mr-4" >`
+        imgLiga = `<img src="../assets/img/laliga.png" class="logo-2 float-left ml-3 " >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'BL1') {
-        imgLiga = `<img src="../assets/img/bundesliga.svg" class="logo float-left mb-2 mr-4" >`
+        imgLiga = `<img src="../assets/img/bundesliga.svg" class="logo pr-4" >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'FL1') {
-        imgLiga = `<img src="../assets/img/ligue1.png" class="logo-2 float-left mb-2 mr-4" >`
+        imgLiga = `<img src="../assets/img/ligue1.png" class="logo-2 float-left ml-4" >`
         $(logoLiga).html(imgLiga)
     }
 }
