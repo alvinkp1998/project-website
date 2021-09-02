@@ -1,0 +1,221 @@
+let URLvar = window.location.href;
+const urlSplit = URLvar.split("=");
+const URLkey = urlSplit[urlSplit.length - 1]
+
+
+const ftblAPI = 'https://api.football-data.org/v2/competitions/'+URLkey+'/matches' 
+const detailAPI = 'https://api.football-data.org/v2/matches/'
+const clubAPI = 'http://api.football-data.org/v2/teams/'
+const headers = {
+    'Content-Type': 'application/json',
+    'X-Auth-Token': '818e0f5cbdb54eaab21ef58c5b47ae8a'       
+};
+axios.get(ftblAPI, {headers}).then(response => console.log(response)).catch(err => console.log(err))
+
+const getInfo = () => {
+    axios.get(ftblAPI, {headers})
+    .then(response => {
+        let infoName = response.data.competition.name
+        let infoSeason = response.data.competition.id
+        $(competitionTitle).html(infoName)
+        $(competitionSeason).html("Season "+infoSeason)
+    })
+    .catch(err => console.log(err))
+}
+getInfo()
+
+const getDataFtbl = () => {
+    axios.get(ftblAPI, {headers})
+    .then(response => {
+        let Data = response.data.matches
+        let rowTables = "<div class='pagination'>"
+        let gameWeeek = 1
+        setGameWeek = 0
+
+        Data.forEach(match => {
+            if(match.matchday == gameWeeek){
+                
+                if(match.status == 'FINISHED'){
+                    setGameWeek = gameWeeek
+                }  
+
+                if(gameWeeek == setGameWeek){
+                    rowTables += `<a onclick="chooseMatchday(${gameWeeek})" href="#gw${gameWeeek}"  class="active">${gameWeeek}</a>`
+                }else{
+                    rowTables += `<a onclick="chooseMatchday(${gameWeeek})" href="#gw${gameWeeek}">${gameWeeek}</a>`
+                }
+                
+                gameWeeek++;
+            }
+        });
+        rowTables += `</div>`  
+        
+        $(gameWeekTab).html(rowTables)
+        matchdayShow(setGameWeek)
+    })
+    .catch(err => console.log(err))
+}
+getDataFtbl()   
+
+
+function chooseMatchday(number) {
+    matchdayShow(number)
+}
+const matchdayShow = (gameweek) => {
+    axios.get(ftblAPI + "?matchday=" + gameweek, {headers})
+    .then(response => {
+        let dataMatch = response.data.matches
+        let rowMatchList = ""
+        let noRows = 1
+        let homeScore = ''
+        let awayScore = ''
+        let colorSet = ''
+
+        dataMatch.forEach(matchList => {
+            //Menampilkan Score jika sudah bertanding
+            if(matchList.score.fullTime.homeTeam == null){
+                homeScore = ''
+            }else{
+                homeScore = matchList.score.fullTime.homeTeam
+            }
+            if(matchList.score.fullTime.awayTeam == null){
+                awayScore = ''
+            }else{
+                awayScore = matchList.score.fullTime.awayTeam
+            }          
+            //Warna pada badge
+            if(matchList.status == 'FINISHED'){
+                colorSet = 'badge-secondary'
+                actionSet = 'onclick'
+            }else if(matchList.status == 'SCHEDULED'){
+                colorSet = 'badge-info'
+                actionSet = 'id'
+            }else{
+                colorSet = 'badge-success'
+                actionSet = 'onclick'
+            }   
+            //Text Winner
+            if(matchList.score.winner == "HOME_TEAM"){
+                htColor = 'text-success font-weight-bold'
+                atColor = ''
+            }else if(matchList.score.winner == "AWAY_TEAM"){
+                htColor = ''
+                atColor = 'text-success font-weight-bold'
+            }else{
+                htColor = ''
+                atColor = ''               
+            }
+
+            rowMatchList += `<tr ${actionSet}="detailMatch(${matchList.id})">
+                            <td scope="row">${noRows}</th>
+                            <td class="${htColor}">${matchList.homeTeam.name}</td>
+                            <td>${homeScore} - ${awayScore}</td>
+                            <td class="${atColor}">${matchList.awayTeam.name}</td> 
+                            <td>${matchList.matchday}</td>
+                            <td><a href="#" class="badge ${colorSet}">${matchList.status}</a></td> 
+                        </tr>`
+            noRows++;
+        });
+        $("#tableWeek").html(rowMatchList)
+        $("#gameWeekId").html("Matchday - "+gameweek)
+    })
+    .catch(err => console.log(err))
+}
+
+
+
+
+const detailMatch = (idMatch) => {
+    axios.get(detailAPI + idMatch , {headers})
+    .then(response => {
+        let Data = response.data.match
+        let Data2 = response.data.head2head
+        console.log(response)
+
+        $(homeClub).html(Data.homeTeam.name)
+        $(homeClubW).html(Data2.homeTeam.wins)
+        $(homeClubD).html(Data2.homeTeam.draws)
+        $(homeClubL).html(Data2.homeTeam.losses)
+
+        $(htScore).html(Data.score.halfTime.homeTeam + " - " + Data.score.halfTime.awayTeam)
+        $(ftScore).html(Data.score.fullTime.homeTeam + " - " + Data.score.fullTime.awayTeam)
+        $(venue).html(Data.venue)
+
+        $(awayClub).html(Data.awayTeam.name)
+        $(awayClubW).html(Data2.awayTeam.wins)
+        $(awayClubD).html(Data2.awayTeam.draws)
+        $(awayClubL).html(Data2.awayTeam.losses)        
+        
+        $(mplayed).html(Data2.numberOfMatches)
+        $(goalsTotal).html(Data2.totalGoals) 
+
+        detailButton = `<a href="#" class="badge badge-info">Lihat Rekap Data</a>` 
+        $(clickButton).html(detailButton)
+
+        teamDetail(Data.homeTeam.id,'home')
+        teamDetail(Data.awayTeam.id,'away')
+
+        $(resultMatch).fadeIn("slow")
+        
+    })
+    .catch(err => console.log(err))
+}
+
+const teamDetail = (idClub, type) => {
+    axios.get(clubAPI + idClub , {headers})
+    .then(response => {
+        let imgs = response.data.crestUrl
+        if(type == 'home'){
+            logoImg = `<img src="${imgs}" height=70px/>`
+            $(logoHome).html(logoImg)
+        }else{
+            logoImg = `<img src="${imgs}" height=70px/>`
+            $(logoAway).html(logoImg)
+        }       
+    })
+    .catch(err => console.log(err))
+}
+
+
+/*
+<object data="your.svg" type="image/svg+xml">
+  <img src="yourfallback.jpg" />
+</object>
+
+
+
+const matchBreakdown = (idMatch) => {
+    axios.get(detailAPI + idMatch , {headers})
+    .then(response => {
+        let Data = response.data.match
+        let Data2 = response.data.head2head
+        console.log(response)
+
+        $(homeClub).html(Data.homeTeam.name)
+        $(homeClubW).html(Data2.homeTeam.wins)
+        $(homeClubD).html(Data2.homeTeam.draws)
+        $(homeClubL).html(Data2.homeTeam.losses)
+
+        $(htScore).html(Data.score.halfTime.homeTeam + " - " + Data.score.halfTime.awayTeam)
+        $(ftScore).html(Data.score.fullTime.homeTeam + " - " + Data.score.fullTime.awayTeam)
+        $(venue).html(Data.venue)
+
+        $(awayClub).html(Data.awayTeam.name)
+        $(awayClubW).html(Data2.awayTeam.wins)
+        $(awayClubD).html(Data2.awayTeam.draws)
+        $(awayClubL).html(Data2.awayTeam.losses)        
+        
+        $(mplayed).html(Data2.numberOfMatches)
+        $(goalsTotal).html(Data2.totalGoals) 
+
+        detailButton = `<a href="#" class="badge badge-info" data-toggle="modal" data-target=".match-breakdown-list">Lihat Rekap Data </a>` 
+        $(clickButton).html(detailButton)
+        
+
+
+        $(resultMatch).fadeIn("slow")
+        
+    })
+    .catch(err => console.log(err))
+}
+*/  
