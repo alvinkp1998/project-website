@@ -21,9 +21,27 @@ function imgLeague(code) {
         $(logoLiga).html(imgLiga)
     }
 }
-
 imgLeague(URLkey)
 
+function tombolKlasemen(code) {
+    if (code == 'PL') {
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=PL"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        $(btnKlasemen).html(buttonKlasemen)
+    } else if (code == 'SA') {
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=SA"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        $(btnKlasemen).html(buttonKlasemen)
+    } else if (code == 'PD') {
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=PD"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        $(btnKlasemen).html(buttonKlasemen)
+    } else if (code == 'BL1') {
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=BL1"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        $(btnKlasemen).html(buttonKlasemen)
+    } else if (code == 'FL1') {
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=FL1"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        $(btnKlasemen).html(buttonKlasemen)
+    }
+}
+tombolKlasemen(URLkey)
 
 const ftblAPI = 'https://api.football-data.org/v2/competitions/' + URLkey + '/matches'
 const detailAPI = 'http://api.football-data.org/v2/matches/'
