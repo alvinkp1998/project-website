@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 /* Navbar */
@@ -63,7 +63,7 @@ body {
 }
 
 .logo-2 {
-    width: 140px;
+    width: 120px;
     height: 150px;
 }
 
@@ -90,27 +90,27 @@ body {
     align-items: center;
 }
 
-.button {
+.button-klasemen {
     border-radius: 20px;
     background-color: #537895;
     background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 15px;
     width: 150px;
     transition: all 0.5s;
 }
 
-.button span {
+.button-klasemen span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.button span:after {
+.button-klasemen span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -119,35 +119,48 @@ body {
     transition: 0.5s;
 }
 
-.button:hover span {
+.button-klasemen:hover span {
     padding-right: 25px;
 }
 
-.button:hover span:after {
+.button-klasemen:hover span:after {
     opacity: 1;
     right: 0;
 }
 
-/* Nice Scroll Look */
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px
+.container-next-match {
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    border-radius: 15px;
+    color: white;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.bg-next-match {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+    border-radius: 15px;
+    color: white;
+    height: auto;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
+/* Page Klasemen */
+.table-klasemen {
+    margin-top: 90px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.position {
+    width: 0;
+}
+
+.theadklasemen {
+    background-color: #537895;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    color: white;
+}
+
+.logoTeam {
+    width: 30px;
+    height: 30px;
 }
 
 
