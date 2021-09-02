@@ -3,6 +3,28 @@ const urlSplit = URLvar.split("=");
 const URLkey = urlSplit[urlSplit.length - 1]
 
 
+function imgLeague(code){
+    if(code == 'PL'){
+        imgLiga = `<img src="../assets/img/premierleague.png" class="logo-2 float-left mb-2 mr-4" >`
+        $(logoLiga).html(imgLiga)
+    }else if(code == 'SA'){
+        imgLiga = `<img src="../assets/img/Serie_A.png" class="logo-2 float-left mb-2 mr-4" >`
+        $(logoLiga).html(imgLiga)
+    }else if(code == 'PD'){
+        imgLiga = `<img src="../assets/img/laliga.png" class="logo-2 float-left mb-2 mr-4" >`
+        $(logoLiga).html(imgLiga)
+    } else if(code == 'BL1'){
+        imgLiga = `<img src="../assets/img/bundesliga.svg" class="logo-2 float-left mb-2 mr-4" >`
+        $(logoLiga).html(imgLiga)
+    } else if(code == 'FL1'){
+        imgLiga = `<img src="../assets/img/ligue1.png" class="logo-2 float-left mb-2 mr-4" >`
+        $(logoLiga).html(imgLiga)
+    }  
+}
+
+imgLeague(URLkey)
+
+
 const ftblAPI = 'https://api.football-data.org/v2/competitions/'+URLkey+'/matches' 
 const detailAPI = 'http://api.football-data.org/v2/matches/'
 const clubAPI = 'http://api.football-data.org/v2/teams/'
@@ -121,9 +143,6 @@ const matchdayShow = (gameweek) => {
     .catch(err => console.log(err))
 }
 
-
-
-
 const detailMatch = (idMatch) => {
     axios.get(detailAPI + idMatch , {headers})
     .then(response => {
@@ -170,3 +189,4 @@ const teamDetail = (idClub, type) => {
     })
     .catch(err => console.log(err))
 }
+
