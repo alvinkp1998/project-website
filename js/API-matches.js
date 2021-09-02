@@ -18,7 +18,6 @@ const getInfo = () => {
         let infoName = response.data.competition.name
         let infoSeason = response.data.competition.id
         $(competitionTitle).html(infoName)
-        $(competitionSeason).html("Season "+infoSeason)
     })
     .catch(err => console.log(err))
 }

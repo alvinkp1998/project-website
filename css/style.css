@@ -43,6 +43,16 @@ body {
     color: white;
 }
 
+.jumbotron-match {
+    background-image: url("https://wallpapercave.com/wp/wp2694966.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 125px;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+
 .display-4 {
     font-family: 'Oregano', cursive;
 }
@@ -60,6 +70,13 @@ body {
 .container-home {
     background-color: white;
     margin-top: -250px;
+    border-radius: 30px;
+    height: auto;
+}
+
+.container-match {
+    background-color: white;
+    margin-top: -450px;
     border-radius: 30px;
     height: auto;
 }
