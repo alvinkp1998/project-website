@@ -79,8 +79,8 @@ html {
 }
 
 .container-match {
+    margin-top: 40px;
     background-color: white;
-    margin-top: -630px;
     border-radius: 30px;
     height: auto;
 }

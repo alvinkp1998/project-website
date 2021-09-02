@@ -1,3 +1,4 @@
+
 let URLvar = window.location.href;
 const urlSplit = URLvar.split("=");
 const URLkey = urlSplit[urlSplit.length - 1]
@@ -26,13 +27,17 @@ imgLeague(URLkey)
 
 
 const ftblAPI = 'https://api.football-data.org/v2/competitions/'+URLkey+'/matches' 
-const detailAPI = 'http://api.football-data.org/v2/matches/'
+const detailAPI = 'https://api.football-data.org/v2/matches/'
 const clubAPI = 'http://api.football-data.org/v2/teams/'
 const headers = {
     'Content-Type': 'application/json',
     'X-Auth-Token': '818e0f5cbdb54eaab21ef58c5b47ae8a'       
 };
-axios.get(ftblAPI, {headers}).then(response => console.log(response)).catch(err => console.log(err))
+axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+//axios.get(ftblAPI, {headers}).then(response => console.log(response)).catch(err => console.log(err))
+
 
 const getInfo = () => {
     axios.get(ftblAPI, {headers})
@@ -43,7 +48,23 @@ const getInfo = () => {
     })
     .catch(err => console.log(err))
 }
-getInfo()
+// getInfo()
+
+const getClubs = () => {
+    axios.get(detailAPI, {headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+    }})
+    .then(response => {
+        console.log(response.data)
+        let clubimg = response.data
+        $(getclubs).html(clubimg)
+    })
+    .catch(err => console.log(err))
+}
+getClubs()
 
 const getDataFtbl = () => {
     axios.get(ftblAPI, {headers})
@@ -76,7 +97,7 @@ const getDataFtbl = () => {
     })
     .catch(err => console.log(err))
 }
-getDataFtbl()   
+// getDataFtbl()   
 
 
 function chooseMatchday(number) {
@@ -176,8 +197,11 @@ const detailMatch = (idMatch) => {
 }
 
 const teamDetail = (idClub, type) => {
-    axios.get(clubAPI + idClub , {headers})
+    axios.get(clubAPI + idClub , {headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+    }})
     .then(response => {
+        console.log(response)
         let imgs = response.data.crestUrl
         if(type == 'home'){
             logoImg = `<img src="${imgs}" height=70px/>`
@@ -190,3 +214,14 @@ const teamDetail = (idClub, type) => {
     .catch(err => console.log(err))
 }
 
+// const imageClub = () => {
+//     axios.get(clubAPI, {headers: {
+//         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+//     }})
+//     .then(response => {
+//         console.log(response)
+//         let clubimg = response
+//         $("#getclubs").html(clubimg)
+//     })
+//     .catch(err => console.log(err))
+// }
