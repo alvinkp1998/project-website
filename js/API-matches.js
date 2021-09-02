@@ -60,18 +60,17 @@ const getInfo = () => {
         })
         .then(response => {
             let infoName = response.data.competition.name
-            let infoSeason = response.data.competition.id
             $(competitionTitle).html(infoName)
         })
         .catch(err => console.log(err))
 }
-getInfo()
 
-const getDataFtbl = () => {
-    axios.get(ftblAPI, {
+
+const getDataFtbl = async () => {
+    try {
+        const response = await axios.get(ftblAPI, {
             headers
-        })
-        .then(response => {
+        })            
             let Data = response.data.matches
             let rowTables = "<div class='pagination'>"
             let gameWeeek = 1
@@ -97,10 +96,11 @@ const getDataFtbl = () => {
 
             $(gameWeekTab).html(rowTables)
             matchdayShow(setGameWeek)
-        })
-        .catch(err => console.log(err))
+        } catch (err) {
+            alert(err)
+        }
 }
-getDataFtbl()
+
 
 
 function chooseMatchday(number) {
@@ -153,13 +153,14 @@ const matchdayShow = (gameweek) => {
                     atColor = ''
                 }
 
-                rowMatchList += `<tr ${actionSet}="detailMatch(${matchList.id})">
+                rowMatchList += `<tr>
                             <td scope="row">${noRows}</th>
-                            <td class="${htColor}">${matchList.homeTeam.name}</td>
-                            <td>${homeScore} - ${awayScore}</td>
-                            <td class="${atColor}">${matchList.awayTeam.name}</td> 
-                            <td>${matchList.matchday}</td>
-                            <td><a href="#" class="badge ${colorSet}">${matchList.status}</a></td> 
+                            <td class="${htColor} text-center">${matchList.homeTeam.name}</td>
+                            <td class="text-center">${homeScore} - ${awayScore}</td>
+                            <td class="${atColor} text-center">${matchList.awayTeam.name}</td> 
+                            <td class="text-center">${matchList.matchday}</td>
+                            <td class="text-center"><a ${actionSet}="detailMatch(${matchList.id})" class="linkDetail badge ${colorSet}"
+                                data-toggle="tooltip" data-placement="top" title="Klik untuk detail pertandingan">${matchList.status}</a></td> 
                         </tr>`
                 noRows++;
             });
@@ -219,3 +220,20 @@ const teamDetail = (idClub, type) => {
         })
         .catch(err => console.log(err))
 }
+
+const loading = async () => {
+    try {
+        Swal.fire({
+            title: 'Please Wait !',
+            html: 'Fetching Data to Server',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+        });
+        await getInfo()
+        await getDataFtbl()
+        Swal.close()
+    } catch (error) {
+        alert(error)
+    }
+}
+loading()
