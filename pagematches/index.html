@@ -45,6 +45,10 @@
             height: 150px;
             border-radius: 15px;
         }
+
+        .linkDetail{ 
+            cursor: pointer; 
+        }
     </style>
 </head>
 
@@ -179,12 +183,12 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Team Home</th>
-                                        <th scope="col">Score</th>
-                                        <th scope="col">Team Away</th>
-                                        <th scope="col">Matchday</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col" class="text-center">#</th>
+                                        <th scope="col" class="text-center">Team Home</th>
+                                        <th scope="col" class="text-center">Score</th>
+                                        <th scope="col" class="text-center">Team Away</th>
+                                        <th scope="col" class="text-center">Matchday</th>
+                                        <th scope="col" class="text-center">Status</br><small>(Click for Match Detail)</small></th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableWeek">
@@ -201,8 +205,6 @@
     </div>
     <!-- End of Jumbotron -->
 
-
-
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -212,7 +214,8 @@
     </script>
     <!-- Axios  -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- Script JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Script JS -->   
     <script src="../js/API-matches.js"></script>
 </body>
 
