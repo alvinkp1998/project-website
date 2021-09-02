@@ -165,12 +165,12 @@
 
             </div>
         </div>
-        <!-- <h4 class="text-center pb-1 mt-5">La Liga</h4>
+        <h4 class="text-center pb-1 mt-5">La Liga</h4>
         <div class="bg-next-match text-center ">
             <div id="nextMatchesLL" class="row">
 
             </div>
-        </div> -->
+        </div>
         <h4 class="text-center pb-1 mt-5">Bundesliga</h4>
         <div class="bg-next-match text-center ">
             <div id="nextMatchesBL" class="row">
@@ -348,33 +348,33 @@
         getMatchSA()
 
         // //Next Match Liga Spanyol
-        // const APIMatchLL = 'http://api.football-data.org/v2/competitions/2101/matches'
-        // const getMatchLL = () => {
-        //     axios.get(APIMatchLL, {
-        //             headers
-        //         })
-        //         .then(response => {
-        //             let Data = response.data.matches
-        //             console.log(Data)
-        //             let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
-        //             let data1 = dataScheduled[0]
-        //             let data2 = dataScheduled[1]
-        //             let data3 = dataScheduled[2]
-        //             let allData = [data1, data2, data3];
-        //             let toHTML = ''
-        //             allData.filter(data => {
-        //                 toHTML += `<div class="col-4">
-        //                                 <h5 class="pt-2">${data.utcDate}</h5>
-        //                                 <h5 class="pt-2">${data.homeTeam.name}</h5>
-        //                                 <h5 class="text-center">vs</h5>
-        //                                 <h5>${data.awayTeam.name}</h5>
-        //                            </div>`
-        //             });
-        //             $(nextMatchesLL).html(toHTML)
-        //         })
-        //         .catch(err => console.log(err))
-        // }
-        // getMatchLL()
+        const APIMatchLL = 'http://api.football-data.org/v2/competitions/PD/matches'
+        const getMatchLL = () => {
+            axios.get(APIMatchLL, {
+                    headers
+                })
+                .then(response => {
+                    let Data = response.data.matches
+                    console.log(Data)
+                    let dataScheduled = Data.filter(data => data.status === 'SCHEDULED')
+                    let data1 = dataScheduled[0]
+                    let data2 = dataScheduled[1]
+                    let data3 = dataScheduled[2]
+                    let allData = [data1, data2, data3];
+                    let toHTML = ''
+                    allData.filter(data => {
+                        toHTML += `<div class="col-4">
+                                        <h5 class="pt-2">${data.utcDate}</h5>
+                                        <h5 class="pt-2">${data.homeTeam.name}</h5>
+                                        <h5 class="text-center">vs</h5>
+                                        <h5>${data.awayTeam.name}</h5>
+                                   </div>`
+                    });
+                    $(nextMatchesLL).html(toHTML)
+                })
+                .catch(err => console.log(err))
+        }
+        getMatchLL()
 
         //Next Match Bundesliga
         const APIMatchBL = 'http://api.football-data.org/v2/competitions/2002/matches'
@@ -392,10 +392,10 @@
                     let toHTML = ''
                     allData.filter(data => {
                         toHTML += `<div class="col-4">
-                                        <p class="h6 pt-2">${data.utcDate}</p>
-                                        <p class="h6 pt-2">${data.homeTeam.name}</p>
-                                        <p class="h6 text-center">vs</p>
-                                        <p class="h6">${data.awayTeam.name}</p>
+                                        <h5 class="pt-2">${data.utcDate}</h5>
+                                        <h5 class="pt-2">${data.homeTeam.name}</h5>
+                                        <h5 class="text-center">vs</h5>
+                                        <h5>${data.awayTeam.name}</h5>
                                    </div>`
                     });
                     $(nextMatchesBL).html(toHTML)
