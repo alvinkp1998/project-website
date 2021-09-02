@@ -1,3 +1,4 @@
+
 let URLvar = window.location.href;
 const urlSplit = URLvar.split("=");
 const URLkey = urlSplit[urlSplit.length - 1]
@@ -100,7 +101,6 @@ const getDataFtbl = async () => {
             alert(err)
         }
 }
-
 
 
 function chooseMatchday(number) {
