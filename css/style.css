@@ -163,6 +163,27 @@ body {
     height: 30px;
 }
 
+/* Nice Scroll Look */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     html {
