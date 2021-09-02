@@ -126,7 +126,7 @@
                                     class="button-klasemen"><span>Klasemen</span></button></a>
                         </td>
                         <td>
-                            <a href="pageklasemen/index.html?league=SA"><button
+                            <a href="pageklasemen/index.html?league=SA"><button id="loadingKlasemen"
                                     class="button-klasemen"><span>Klasemen</span></button></a>
                         </td>
                         <td>
@@ -198,6 +198,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Script JS -->
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
     <script>
         // Top Scorer Liga Inggris
         const APITopScorerPL = 'http://api.football-data.org/v2/competitions/PL/scorers'
