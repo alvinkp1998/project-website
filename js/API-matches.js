@@ -4,7 +4,7 @@ const URLkey = urlSplit[urlSplit.length - 1]
 
 
 const ftblAPI = 'https://api.football-data.org/v2/competitions/'+URLkey+'/matches' 
-const detailAPI = 'https://api.football-data.org/v2/matches/'
+const detailAPI = 'http://api.football-data.org/v2/matches/'
 const clubAPI = 'http://api.football-data.org/v2/teams/'
 const headers = {
     'Content-Type': 'application/json',
@@ -130,7 +130,6 @@ const detailMatch = (idMatch) => {
     .then(response => {
         let Data = response.data.match
         let Data2 = response.data.head2head
-        console.log(response)
 
         $(homeClub).html(Data.homeTeam.name)
         $(homeClubW).html(Data2.homeTeam.wins)
@@ -148,9 +147,6 @@ const detailMatch = (idMatch) => {
         
         $(mplayed).html(Data2.numberOfMatches)
         $(goalsTotal).html(Data2.totalGoals) 
-
-        detailButton = `<a href="#" class="badge badge-info">Lihat Rekap Data</a>` 
-        $(clickButton).html(detailButton)
 
         teamDetail(Data.homeTeam.id,'home')
         teamDetail(Data.awayTeam.id,'away')
@@ -175,47 +171,3 @@ const teamDetail = (idClub, type) => {
     })
     .catch(err => console.log(err))
 }
-
-
-/*
-<object data="your.svg" type="image/svg+xml">
-  <img src="yourfallback.jpg" />
-</object>
-
-
-
-const matchBreakdown = (idMatch) => {
-    axios.get(detailAPI + idMatch , {headers})
-    .then(response => {
-        let Data = response.data.match
-        let Data2 = response.data.head2head
-        console.log(response)
-
-        $(homeClub).html(Data.homeTeam.name)
-        $(homeClubW).html(Data2.homeTeam.wins)
-        $(homeClubD).html(Data2.homeTeam.draws)
-        $(homeClubL).html(Data2.homeTeam.losses)
-
-        $(htScore).html(Data.score.halfTime.homeTeam + " - " + Data.score.halfTime.awayTeam)
-        $(ftScore).html(Data.score.fullTime.homeTeam + " - " + Data.score.fullTime.awayTeam)
-        $(venue).html(Data.venue)
-
-        $(awayClub).html(Data.awayTeam.name)
-        $(awayClubW).html(Data2.awayTeam.wins)
-        $(awayClubD).html(Data2.awayTeam.draws)
-        $(awayClubL).html(Data2.awayTeam.losses)        
-        
-        $(mplayed).html(Data2.numberOfMatches)
-        $(goalsTotal).html(Data2.totalGoals) 
-
-        detailButton = `<a href="#" class="badge badge-info" data-toggle="modal" data-target=".match-breakdown-list">Lihat Rekap Data </a>` 
-        $(clickButton).html(detailButton)
-        
-
-
-        $(resultMatch).fadeIn("slow")
-        
-    })
-    .catch(err => console.log(err))
-}
-*/  

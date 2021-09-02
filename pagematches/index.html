@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Website</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+            .pagination {
+                overflow: auto;
+                white-space: nowrap;          
+            }
+            
+            .pagination a {
+                text-decoration: none;
+                display: inline-block;
+                color: rgb(17, 17, 17);
+                text-align: center;
+                padding: 6px 15px;
+                text-decoration: none;          
+            }
+            
+            .pagination a.active {
+                background-color: #575757;
+                color: white;
+                border-radius: 15px;
+            }
+            
+            .pagination a:hover:not(.active) {
+                background-color: #ddd;
+                border-radius: 15px;
+            }     
+            .card-round{
+                height: 150px;
+                border-radius: 15px;
+            }            
+        </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark navbar-expand-lg shadow-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Clubs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Premier League</a>
+                            <a class="dropdown-item" href="#">Serie A</a>
+                            <a class="dropdown-item" href="#">La Liga</a>
+                            <a class="dropdown-item" href="#">Bundesliga</a>
+                            <a class="dropdown-item" href="#">Ligue 1</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Matches
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Premier League</a>
+                            <a class="dropdown-item" href="#">Serie A</a>
+                            <a class="dropdown-item" href="#">La Liga</a>
+                            <a class="dropdown-item" href="#">Bundesliga</a>
+                            <a class="dropdown-item" href="#">Ligue 1</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All Players</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar  -->
+
+
+    <!-- Jumbotron -->
+    <div>
+        <div class="jumbotron jumbotron-match">
+            <div class="container text-center">
+                <h1 class="display-4"><span id="competitionTitle"></span></h1>
+                <h4><span id="competitionSeason"></span></h4>
+            </div>
+        </div>
+    </div>
+    <!-- End of Jumbotron -->
+
+    <div class="container container-match shadow-lg">
+        <div style="overflow-x:auto;">
+            <div class="text-center"><h2 id="gameWeekId"></span></h2></div>
+            
+            <span id="gameWeekTab"></span>
+            
+            <div class="row" id="resultMatch" style="margin: 20px; display: none;">
+            <div class="col-sm-4">
+                <div class="card card-round">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span id="logoHome"></span>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5 class="card-title"><span id="homeClub"></span></h5>
+                            <p class="card-text">Record : </br> W : <span id="homeClubW"></span> / D : <span id="homeClubD"></span> / L : <span id="homeClubL"></span></p>                            
+                        </div>                        
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-round">
+                <div class="card-body text-center">
+                    <h5 class="card-text">HT : <span id="htScore"></span> </br>FT : <span id="ftScore"></span></h5>
+                    <p class="card-text text-sm"><small><span id="venue"></span></small></p>                
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-round">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <span id="logoAway"></span>
+                        </div>
+                        <div class="col-sm-8">
+                            <h5 class="card-title"><span id="awayClub"></span></h5>
+                            <p class="card-text">Record : </br> W : <span id="awayClubW"></span> / D : <span id="awayClubD"></span> / L : <span id="awayClubL"></span></p>                            
+                        </div>                        
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card" style="height:24px; padding:0px; margin-top: 10px;">
+                <div class="card-body text-center" style="padding:0px;">
+                    <p class="text-sm">Match Played : <span id="mplayed"></span> Goals : <span id="goalsTotal"></span></p>  
+                </div>
+                </div>
+            </div>                       
+            </div>
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Team Home</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Team Away</th>
+                        <th scope="col">Matchday</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tableWeek">
+
+                </tbody>
+            </table>                                 
+            
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
+    <!-- Axios  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Script JS -->
+    <script src="../js/API-matches.js"></script>
+</body>
+
+</html>
