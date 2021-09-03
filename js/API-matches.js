@@ -43,6 +43,27 @@ function tombolKlasemen(code) {
 }
 tombolKlasemen(URLkey)
 
+function tombolClub(code) {
+    if (code == 'PL') {
+        buttonClub = '<a href="../pageclubs/index.html?league=PL"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        $(btnClub).html(buttonClub)
+    } else if (code == 'SA') {
+        buttonClub = '<a href="../pageclubs/index.html?league=SA"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        $(btnClub).html(buttonClub)
+    } else if (code == 'PD') {
+        buttonClub = '<a href="../pageclubs/index.html?league=PD"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        $(btnClub).html(buttonClub)
+    } else if (code == 'BL1') {
+        buttonClub = '<a href="../pageclubs/index.html?league=BL1"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        $(btnClub).html(buttonClub)
+    } else if (code == 'FL1') {
+        buttonClub = '<a href="../pageclubs/index.html?league=FL1"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        $(btnClub).html(buttonClub)
+    }
+}
+tombolClub(URLkey)
+
+
 const ftblAPI = 'https://api.football-data.org/v2/competitions/' + URLkey + '/matches'
 const detailAPI = 'http://api.football-data.org/v2/matches/'
 const clubAPI = 'http://api.football-data.org/v2/teams/'
