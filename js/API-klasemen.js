@@ -94,7 +94,7 @@ const loading = async () => {
     try {
         Swal.fire({
             title: 'Please Wait !',
-            html: 'Data Uploading',
+            html: 'Fetching Data to Server',
             allowOutsideClick: false,
             showConfirmButton: false,
         });

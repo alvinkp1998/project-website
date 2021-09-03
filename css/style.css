@@ -187,6 +187,11 @@ html {
     height: 120px;
 }
 
+.logoClubInfo {
+    width: 300px;
+    padding-top: 30px;
+}
+
 /* Footer */
 footer {
     left: 0;

@@ -31,4 +31,19 @@ const getAPIKlasemen = async () => {
         alert(err)
     }
 }
-getAPIKlasemen()
+
+const loading = async () => {
+    try {
+        Swal.fire({
+            title: 'Please Wait !',
+            html: 'Fetching Data to Server',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+        });
+        await getAPIKlasemen()
+        Swal.close()
+    } catch (error) {
+        alert(error)
+    }
+}
+loading()
