@@ -65,8 +65,8 @@ tombolClub(URLkey)
 
 
 const ftblAPI = 'https://api.football-data.org/v2/competitions/' + URLkey + '/matches'
-const detailAPI = 'http://api.football-data.org/v2/matches/'
-const clubAPI = 'http://api.football-data.org/v2/teams/'
+const detailAPI = 'https://api.football-data.org/v2/matches/'
+const clubAPI = 'https://api.football-data.org/v2/teams/'
 const headers = {
     'Content-Type': 'application/json',
     'X-Auth-Token': '818e0f5cbdb54eaab21ef58c5b47ae8a'

@@ -143,6 +143,29 @@
                         </td>
 
                     </tr>
+                    <tr class="text-center">
+                        <td>
+                            <a href="pagematches/index.html?league=PL"><button
+                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
+                        </td>
+                        <td>
+                            <a href="pagematches/index.html?league=SA"><button id="loadingKlasemen"
+                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
+                        </td>
+                        <td>
+                            <a href="pagematches/index.html?league=PD"><button
+                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
+                        </td>
+                        <td>
+                            <a href="pagematches/index.html?league=BL1"><button
+                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
+                        </td>
+                        <td>
+                            <a href="pagematches/index.html?league=FL1"><button
+                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
+                        </td>
+
+                    </tr>                    
                 </tbody>
             </table>
         </div>
@@ -202,7 +225,7 @@
 
     <script>
         // Top Scorer Liga Inggris
-        const APITopScorerPL = 'http://api.football-data.org/v2/competitions/PL/scorers'
+        const APITopScorerPL = 'https://api.football-data.org/v2/competitions/PL/scorers'
         const getTopScorerPL = () => {
             axios.get(APITopScorerPL, {
                     headers
@@ -220,7 +243,7 @@
         getTopScorerPL()
 
         // Top Scorer Liga Italia
-        const APITopScorerSA = 'http://api.football-data.org/v2/competitions/SA/scorers'
+        const APITopScorerSA = 'https://api.football-data.org/v2/competitions/SA/scorers'
         const getTopScorerSA = () => {
             axios.get(APITopScorerSA, {
                     headers
@@ -238,7 +261,7 @@
         getTopScorerSA()
 
         // Top Scorer Liga Spanyol
-        const APITopScorerPD = 'http://api.football-data.org/v2/competitions/PD/scorers'
+        const APITopScorerPD = 'https://api.football-data.org/v2/competitions/PD/scorers'
         const getTopScorerPD = () => {
             axios.get(APITopScorerPD, {
                     headers
@@ -256,7 +279,7 @@
         getTopScorerPD()
 
         // Top Scorer Liga Jerman
-        const APITopScorerBL = 'http://api.football-data.org/v2/competitions/BL1/scorers'
+        const APITopScorerBL = 'https://api.football-data.org/v2/competitions/BL1/scorers'
         const getTopScorerBL = () => {
             axios.get(APITopScorerBL, {
                     headers
@@ -274,7 +297,7 @@
         getTopScorerBL()
 
         // Top Scorer Liga Prancis
-        const APITopScorerL1 = 'http://api.football-data.org/v2/competitions/FL1/scorers'
+        const APITopScorerL1 = 'https://api.football-data.org/v2/competitions/FL1/scorers'
         const getTopScorerL1 = () => {
             axios.get(APITopScorerL1, {
                     headers
@@ -292,7 +315,7 @@
         getTopScorerL1()
 
         //Next Match Liga Inggris
-        const APIMatchPL = 'http://api.football-data.org/v2/competitions/2021/matches'
+        const APIMatchPL = 'https://api.football-data.org/v2/competitions/2021/matches'
 
         const getMatchPL = () => {
             axios.get(APIMatchPL, {
@@ -321,7 +344,7 @@
         getMatchPL()
 
         //Next Match Liga Italia
-        const APIMatchSA = 'http://api.football-data.org/v2/competitions/2019/matches'
+        const APIMatchSA = 'https://api.football-data.org/v2/competitions/2019/matches'
 
         const getMatchSA = () => {
             axios.get(APIMatchSA, {
@@ -350,7 +373,7 @@
         getMatchSA()
 
         // //Next Match Liga Spanyol
-        const APIMatchLL = 'http://api.football-data.org/v2/competitions/PD/matches'
+        const APIMatchLL = 'https://api.football-data.org/v2/competitions/PD/matches'
         const getMatchLL = () => {
             axios.get(APIMatchLL, {
                     headers
@@ -379,7 +402,7 @@
         getMatchLL()
 
         //Next Match Bundesliga
-        const APIMatchBL = 'http://api.football-data.org/v2/competitions/2002/matches'
+        const APIMatchBL = 'https://api.football-data.org/v2/competitions/2002/matches'
         const getMatchBL = () => {
             axios.get(APIMatchBL, {
                     headers
@@ -407,7 +430,7 @@
         getMatchBL()
 
         //Next Match Liga Prancis
-        const APIMatchL1 = 'http://api.football-data.org/v2/competitions/2015/matches'
+        const APIMatchL1 = 'https://api.football-data.org/v2/competitions/2015/matches'
         const getMatchL1 = () => {
             axios.get(APIMatchL1, {
                     headers

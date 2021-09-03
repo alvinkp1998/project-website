@@ -1,7 +1,7 @@
 let URLvar = window.location.href;
 const urlSplit = URLvar.split("=");
 const URLkey = urlSplit[urlSplit.length - 1]
-const sampleAPI = 'http://api.football-data.org/v2/competitions/'+URLkey+'/teams'
+const sampleAPI = 'https://api.football-data.org/v2/competitions/'+URLkey+'/teams'
 const headers = {
     'Content-Type': 'application/json',
     'X-Auth-Token': '729818e4aba240058364640a06fb0920'       
