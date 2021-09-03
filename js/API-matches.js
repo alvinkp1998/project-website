@@ -25,19 +25,19 @@ imgLeague(URLkey)
 
 function tombolKlasemen(code) {
     if (code == 'PL') {
-        buttonKlasemen = '<a href="../pageklasemen/index.html?league=PL"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=PL"><button class="button-klasemen smaller margintop"><span>Klasemen</span></button></a>'
         $(btnKlasemen).html(buttonKlasemen)
     } else if (code == 'SA') {
-        buttonKlasemen = '<a href="../pageklasemen/index.html?league=SA"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=SA"><button class="button-klasemen smaller margintop"><span>Klasemen</span></button></a>'
         $(btnKlasemen).html(buttonKlasemen)
     } else if (code == 'PD') {
-        buttonKlasemen = '<a href="../pageklasemen/index.html?league=PD"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=PD"><button class="button-klasemen smaller margintop"><span>Klasemen</span></button></a>'
         $(btnKlasemen).html(buttonKlasemen)
     } else if (code == 'BL1') {
-        buttonKlasemen = '<a href="../pageklasemen/index.html?league=BL1"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=BL1"><button class="button-klasemen smaller margintop"><span>Klasemen</span></button></a>'
         $(btnKlasemen).html(buttonKlasemen)
     } else if (code == 'FL1') {
-        buttonKlasemen = '<a href="../pageklasemen/index.html?league=FL1"><button class="button-klasemen" style="margin-top:120px"><span>Klasemen</span></button></a>'
+        buttonKlasemen = '<a href="../pageklasemen/index.html?league=FL1"><button class="button-klasemen smaller margintop"><span>Klasemen</span></button></a>'
         $(btnKlasemen).html(buttonKlasemen)
     }
 }
@@ -45,19 +45,19 @@ tombolKlasemen(URLkey)
 
 function tombolClub(code) {
     if (code == 'PL') {
-        buttonClub = '<a href="../pageclubs/index.html?league=PL"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        buttonClub = '<a href="../pageclubs/index.html?league=PL"><button class="button-klasemen smaller margintop"><span>Daftar Club</span></button></a>'
         $(btnClub).html(buttonClub)
     } else if (code == 'SA') {
-        buttonClub = '<a href="../pageclubs/index.html?league=SA"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        buttonClub = '<a href="../pageclubs/index.html?league=SA"><button class="button-klasemen smaller margintop"><span>Daftar Club</span></button></a>'
         $(btnClub).html(buttonClub)
     } else if (code == 'PD') {
-        buttonClub = '<a href="../pageclubs/index.html?league=PD"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        buttonClub = '<a href="../pageclubs/index.html?league=PD"><button class="button-klasemen smaller margintop"><span>Daftar Club</span></button></a>'
         $(btnClub).html(buttonClub)
     } else if (code == 'BL1') {
-        buttonClub = '<a href="../pageclubs/index.html?league=BL1"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        buttonClub = '<a href="../pageclubs/index.html?league=BL1"><button class="button-klasemen smaller margintop"><span>Daftar Club</span></button></a>'
         $(btnClub).html(buttonClub)
     } else if (code == 'FL1') {
-        buttonClub = '<a href="../pageclubs/index.html?league=FL1"><button class="button-klasemen" style="margin-top:120px"><span>Daftar Club</span></button></a>'
+        buttonClub = '<a href="../pageclubs/index.html?league=FL1"><button class="button-klasemen smaller margintop"><span>Daftar Club</span></button></a>'
         $(btnClub).html(buttonClub)
     }
 }

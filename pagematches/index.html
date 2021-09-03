@@ -46,9 +46,9 @@
             border-radius: 15px;
         }
 
-        .linkDetail{ 
-            cursor: pointer; 
-        }   
+        .linkDetail {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -108,15 +108,15 @@
                         <div style="overflow-x:auto;">
                             <div class="px-2 ml-1 mb-3" style="padding: 10px;">
                                 <div class="row">
-                                    <div class="col-2"><span id="logoLiga"></span></div>
-                                    <div class="col-6">
-                                        <h2 class="pt-5"><span id="competitionTitle"></span>
+                                    <div id="logoLiga" class="col-md-2"></div>
+                                    <div class="col-md-6 margin-fixed">
+                                        <h2 class="pt-5">Matches <span id="competitionTitle"></span>
                                         </h2>
                                         <h3>Musim 2021/2022</h3>
                                     </div>
-                                    <div class="col text-right">
-                                        <span id="btnKlasemen"></span>
-                                        <span id="btnClub"></span>
+                                    <div class="col-lg text-right centering">
+                                        <span class="" id="btnKlasemen"></span>
+                                        <span class="" id="btnClub"></span>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,8 @@
                                         <th scope="col" class="text-center">Score</th>
                                         <th scope="col" class="text-center">Team Away</th>
                                         <th scope="col" class="text-center">Matchday</th>
-                                        <th scope="col" class="text-center">Status</br><small>(Click for Match Detail)</small></th>
+                                        <th scope="col" class="text-center">Status</br><small>(Click for Match
+                                                Detail)</small></th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableWeek">
@@ -216,7 +217,7 @@
     <!-- Axios  -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <!-- Script JS -->   
+    <!-- Script JS -->
     <script src="../js/API-matches.js"></script>
 </body>
 
