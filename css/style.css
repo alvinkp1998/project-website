@@ -289,7 +289,11 @@ footer {
 
     .jumbotron-home {
 
-        padding-top: 150px;
+        padding-top: 90px;
+    }
+
+    .container-home {
+        margin-top: -300px;
     }
 
     .margin-fixed {
