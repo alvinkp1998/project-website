@@ -80,130 +80,144 @@
     </div>
     <!-- End of Jumbotron -->
 
-    <div class="container container-home shadow-lg">
-        <div style="overflow-x:auto;">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col-sm"><img src="assets/img/premierleague.png" class="logo img-fluid mt-3"
-                                alt="premierleague"></th>
-                        <th scope="col-sm"><img src="assets/img/Serie_A.png" class="logo img-fluid" alt="serie-a">
-                        </th>
-                        <th scope="col-sm"><img src="assets/img/laliga.png" class="logo-2 img-fluid  ml-3" alt="laliga">
-                        </th>
-                        <th scope="col-sm"><img src="assets/img/bundesliga.svg" class="logo img-fluid" alt="bundesliga">
-                        </th>
-                        <th scope="col-sm"><img src="assets/img/ligue1.png" class="logo-2 img-fluid  ml-3" alt="ligue1">
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    <tr>
-                        <td>
-                            <p class="h5"><strong>Top Scorer</strong> </p>
-                            <p id="topPremierLeague"></p>
-                        </td>
-                        <td>
-                            <p class="h5"><strong>Top Scorer</strong> </p>
-                            <p id="topSerieA"></p>
-                        </td>
-                        <td>
-                            <p class="h5"><strong>Top Scorer</strong> </p>
-                            <p id="topLaliga"></p>
-                        </td>
-                        <td>
-                            <p class="h5"><strong>Top Scorer</strong> </p>
-                            <p id="topBundesliga"></p>
-                        </td>
-                        <td>
-                            <p class="h5"><strong>Top Scorer</strong> </p>
-                            <p id="topLigue1"></p>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>
-                            <a href="pageklasemen/index.html?league=PL"><button
-                                    class="button-klasemen"><span>Klasemen</span></button></a>
-                        </td>
-                        <td>
-                            <a href="pageklasemen/index.html?league=SA"><button id="loadingKlasemen"
-                                    class="button-klasemen"><span>Klasemen</span></button></a>
-                        </td>
-                        <td>
-                            <a href="pageklasemen/index.html?league=PD"><button
-                                    class="button-klasemen"><span>Klasemen</span></button></a>
-                        </td>
-                        <td>
-                            <a href="pageklasemen/index.html?league=BL1"><button
-                                    class="button-klasemen"><span>Klasemen</span></button></a>
-                        </td>
-                        <td>
-                            <a href="pageklasemen/index.html?league=FL1"><button
-                                    class="button-klasemen"><span>Klasemen</span></button></a>
-                        </td>
+    <div class="container">
+        <div class="container-home">
+            <div style="overflow-x:auto;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="w-auto" scope="col-sm"><img src="assets/img/premierleague.png"
+                                    class="logo img-fluid mt-3" alt="premierleague"></th>
+                            <th class="w-auto" scope="col-sm"><img src="assets/img/Serie_A.png" class="logo img-fluid"
+                                    alt="serie-a">
+                            </th>
+                            <th class="w-auto" scope="col-sm"><img src="assets/img/laliga.png"
+                                    class="logo-2 img-fluid  ml-3" alt="laliga">
+                            </th>
+                            <th class="w-auto" scope="col-sm"><img src="assets/img/bundesliga.svg"
+                                    class="logo img-fluid" alt="bundesliga">
+                            </th>
+                            <th class="w-auto" scope="col-sm"><img src="assets/img/ligue1.png"
+                                    class="logo-2 img-fluid  ml-3" alt="ligue1">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>
+                                <p class="h5"><strong>Top Scorer</strong> </p>
+                                <p id="topPremierLeague"></p>
+                            </td>
+                            <td>
+                                <p class="h5"><strong>Top Scorer</strong> </p>
+                                <p id="topSerieA"></p>
+                            </td>
+                            <td>
+                                <p class="h5"><strong>Top Scorer</strong> </p>
+                                <p id="topLaliga"></p>
+                            </td>
+                            <td>
+                                <p class="h5"><strong>Top Scorer</strong> </p>
+                                <p id="topBundesliga"></p>
+                            </td>
+                            <td>
+                                <p class="h5"><strong>Top Scorer</strong> </p>
+                                <p id="topLigue1"></p>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>
+                                <a href="pageklasemen/index.html?league=PL"><button
+                                        class="button-klasemen smaller"><span>Klasemen</span></button></a>
+                            </td>
+                            <td>
+                                <a href="pageklasemen/index.html?league=SA"><button id="loadingKlasemen"
+                                        class="button-klasemen smaller"><span>Klasemen</span></button></a>
+                            </td>
+                            <td>
+                                <a href="pageklasemen/index.html?league=PD"><button
+                                        class="button-klasemen smaller"><span>Klasemen</span></button></a>
+                            </td>
+                            <td>
+                                <a href="pageklasemen/index.html?league=BL1"><button
+                                        class="button-klasemen smaller"><span>Klasemen</span></button></a>
+                            </td>
+                            <td>
+                                <a href="pageklasemen/index.html?league=FL1"><button
+                                        class="button-klasemen smaller"><span>Klasemen</span></button></a>
+                            </td>
 
-                    </tr>
-                    <tr class="text-center">
-                        <td>
-                            <a href="pagematches/index.html?league=PL"><button
-                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
-                        </td>
-                        <td>
-                            <a href="pagematches/index.html?league=SA"><button id="loadingKlasemen"
-                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
-                        </td>
-                        <td>
-                            <a href="pagematches/index.html?league=PD"><button
-                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
-                        </td>
-                        <td>
-                            <a href="pagematches/index.html?league=BL1"><button
-                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
-                        </td>
-                        <td>
-                            <a href="pagematches/index.html?league=FL1"><button
-                                    class="button-klasemen"><span><small>Match Update</small></span></button></a>
-                        </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>
+                                <a href="pagematches/index.html?league=PL"><button
+                                        class="button-klasemen smaller"><span><small>Match
+                                                Update</small></span></button></a>
+                            </td>
+                            <td>
+                                <a href="pagematches/index.html?league=SA"><button id="loadingKlasemen"
+                                        class="button-klasemen smaller"><span><small>Match
+                                                Update</small></span></button></a>
+                            </td>
+                            <td>
+                                <a href="pagematches/index.html?league=PD"><button
+                                        class="button-klasemen smaller"><span><small>Match
+                                                Update</small></span></button></a>
+                            </td>
+                            <td>
+                                <a href="pagematches/index.html?league=BL1"><button
+                                        class="button-klasemen smaller"><span><small>Match
+                                                Update</small></span></button></a>
+                            </td>
+                            <td>
+                                <a href="pagematches/index.html?league=FL1"><button
+                                        class="button-klasemen smaller"><span><small>Match
+                                                Update</small></span></button></a>
+                            </td>
 
-                    </tr>                    
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </div>
 
 
-    <div class="container container-next-match shadow-sm mt-5">
-        <h2 class="text-center pt-3"><i class="fas fa-fire"></i><strong> NEXT MATCHES </strong><i
-                class="fas fa-fire"></i>
-        </h2><br>
-        <h4 class="text-center pb-1">Premier League</h4>
-        <div class="bg-next-match text-center ">
-            <div id="nextMatchesPL" class="row">
+    <div class="container shadow-sm mt-5">
+        <div class="container-next-match">
+            <h2 class="text-center pt-3 pb-4"><i class="fas fa-fire"></i><strong> NEXT MATCHES </strong><i
+                    class="fas fa-fire"></i>
+            </h2><br>
+            <h4 class="text-center pb-1">Premier League</h4>
+            <div class="bg-next-match text-center ">
+                <div id="nextMatchesPL" class="row">
 
+                </div>
             </div>
-        </div>
-        <h4 class="text-center pb-1 mt-5">Serie A</h4>
-        <div class="bg-next-match text-center ">
-            <div id="nextMatchesSA" class="row">
+            <h4 class="text-center pb-1 mt-5">Serie A</h4>
+            <div class="bg-next-match text-center ">
+                <div id="nextMatchesSA" class="row">
 
+                </div>
             </div>
-        </div>
-        <h4 class="text-center pb-1 mt-5">La Liga</h4>
-        <div class="bg-next-match text-center ">
-            <div id="nextMatchesLL" class="row">
+            <h4 class="text-center pb-1 mt-5">La Liga</h4>
+            <div class="bg-next-match text-center ">
+                <div id="nextMatchesLL" class="row">
 
+                </div>
             </div>
-        </div>
-        <h4 class="text-center pb-1 mt-5">Bundesliga</h4>
-        <div class="bg-next-match text-center ">
-            <div id="nextMatchesBL" class="row">
+            <h4 class="text-center pb-1 mt-5">Bundesliga</h4>
+            <div class="bg-next-match text-center ">
+                <div id="nextMatchesBL" class="row">
 
+                </div>
             </div>
-        </div>
-        <h4 class="text-center pb-1 mt-5">Ligue 1</h4>
-        <div class="bg-next-match text-center ">
-            <div id="nextMatchesL1" class="row">
+            <h4 class="text-center pb-1 mt-5">Ligue 1</h4>
+            <div class="bg-next-match text-center ">
+                <div id="nextMatchesL1" class="row">
 
+                </div>
             </div>
         </div>
     </div>

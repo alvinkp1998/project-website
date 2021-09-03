@@ -5,19 +5,19 @@ const URLkey = urlSplit[urlSplit.length - 1]
 
 function imgLeague(code) {
     if (code == 'PL') {
-        imgLiga = `<img src="../assets/img/premierleague.png" class="logo float-left pr-3" >`
+        imgLiga = `<img src="../assets/img/premierleague.png" class="logo format-center pr-3" >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'SA') {
-        imgLiga = `<img src="../assets/img/Serie_A.png" class="logo float-left pr-3" >`
+        imgLiga = `<img src="../assets/img/Serie_A.png" class="logo format-center pr-3" >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'PD') {
-        imgLiga = `<img src="../assets/img/laliga.png" class="logo-2 float-left ml-3 " >`
+        imgLiga = `<img src="../assets/img/laliga.png" class="logo-2 format-center ml-3 " >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'BL1') {
-        imgLiga = `<img src="../assets/img/bundesliga.svg" class="logo pr-4" >`
+        imgLiga = `<img src="../assets/img/bundesliga.svg" class="logo format-center pr-4" >`
         $(logoLiga).html(imgLiga)
     } else if (code == 'FL1') {
-        imgLiga = `<img src="../assets/img/ligue1.png" class="logo-2 float-left ml-4" >`
+        imgLiga = `<img src="../assets/img/ligue1.png" class="logo-2 format-center ml-4" >`
         $(logoLiga).html(imgLiga)
     }
 }
@@ -91,35 +91,35 @@ const getDataFtbl = async () => {
     try {
         const response = await axios.get(ftblAPI, {
             headers
-        })            
-            let Data = response.data.matches
-            let rowTables = "<div class='pagination'>"
-            let gameWeeek = 1
-            setGameWeek = 0
+        })
+        let Data = response.data.matches
+        let rowTables = "<div class='pagination'>"
+        let gameWeeek = 1
+        setGameWeek = 0
 
-            Data.forEach(match => {
-                if (match.matchday == gameWeeek) {
+        Data.forEach(match => {
+            if (match.matchday == gameWeeek) {
 
-                    if (match.status == 'FINISHED') {
-                        setGameWeek = gameWeeek
-                    }
-
-                    if (gameWeeek == setGameWeek) {
-                        rowTables += `<a onclick="chooseMatchday(${gameWeeek})" href="#gw${gameWeeek}"  class="active">${gameWeeek}</a>`
-                    } else {
-                        rowTables += `<a onclick="chooseMatchday(${gameWeeek})" href="#gw${gameWeeek}">${gameWeeek}</a>`
-                    }
-
-                    gameWeeek++;
+                if (match.status == 'FINISHED') {
+                    setGameWeek = gameWeeek
                 }
-            });
-            rowTables += `</div>`
 
-            $(gameWeekTab).html(rowTables)
-            matchdayShow(setGameWeek)
-        } catch (err) {
-            alert(err)
-        }
+                if (gameWeeek == setGameWeek) {
+                    rowTables += `<a onclick="chooseMatchday(${gameWeeek})" href="#gw${gameWeeek}"  class="active">${gameWeeek}</a>`
+                } else {
+                    rowTables += `<a onclick="chooseMatchday(${gameWeeek})" href="#gw${gameWeeek}">${gameWeeek}</a>`
+                }
+
+                gameWeeek++;
+            }
+        });
+        rowTables += `</div>`
+
+        $(gameWeekTab).html(rowTables)
+        matchdayShow(setGameWeek)
+    } catch (err) {
+        alert(err)
+    }
 }
 
 

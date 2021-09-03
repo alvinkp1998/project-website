@@ -62,22 +62,16 @@ html {
 }
 
 .container-home {
+    overflow: auto;
+
+    border: 4px solid rgba(17, 15, 15, 0.178);
     background-color: white;
     margin-top: -250px;
     border-radius: 30px;
-    height: auto;
 }
-
-
-
 
 .container-home div {
     width: 100%;
-}
-
-.col-md-2 {
-    background-color: bisque;
-    align-items: center;
 }
 
 .button-klasemen {
@@ -121,6 +115,7 @@ html {
 .container-next-match {
     background-color: #537895;
     background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    border: 3px solid rgb(17, 16, 16);
     border-radius: 15px;
     color: white;
 }
@@ -132,6 +127,7 @@ html {
     color: white;
     height: auto;
 }
+
 
 /* Page Matches */
 .jumbotron-match {
@@ -202,25 +198,87 @@ html {
     background: #555;
 }
 
+/* Tampilan Tablet */
 @media screen and (min-width: 768px) and (max-width: 991px) {
     html {
         font-size: 0.75rem;
+    }
+
+    .margin-fixed {
+        margin-left: 50px;
+
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     html {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .margin-fixed {
+        margin-top: -20px;
+
+    }
+
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .logoTeam {
+        width: 20px;
+        height: 20px;
+    }
+
+    .format-center {
+        text-align: center;
     }
 }
 
+/* Tampilan HP */
 @media screen and (max-width: 576px) {
     html {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
 
     .jumbotron-home {
 
-        padding-top: 200px;
+        padding-top: 150px;
+    }
+
+    .margin-fixed {
+        margin-top: -20px;
+
+    }
+
+    .logo {
+        width: 120px;
+        height: 100px;
+    }
+
+    .logo-2 {
+        width: 80px;
+        height: 90px;
+    }
+
+    .logoTeam {
+        width: 15px;
+        height: 15px;
+    }
+
+    .format-center {
+        text-align: center;
+    }
+
+    .smaller {
+        width: 100px;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .jumbotron-home {
+
+        padding-top: 100px;
     }
 }
