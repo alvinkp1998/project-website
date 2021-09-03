@@ -164,21 +164,21 @@ const matchdayShow = (gameweek) => {
                 }
                 //Text Winner
                 if (matchList.score.winner == "HOME_TEAM") {
-                    htColor = 'text-success font-weight-bold'
-                    atColor = ''
+                    htColor = 'text-info font-weight-bold'
+                    atColor = 'text-dark'
                 } else if (matchList.score.winner == "AWAY_TEAM") {
-                    htColor = ''
-                    atColor = 'text-success font-weight-bold'
+                    htColor = 'text-dark'
+                    atColor = 'text-info font-weight-bold'
                 } else {
-                    htColor = ''
-                    atColor = ''
+                    htColor = 'text-dark'
+                    atColor = 'text-dark'
                 }
 
                 rowMatchList += `<tr>
                             <td scope="row">${noRows}</th>
-                            <td class="${htColor} text-center">${matchList.homeTeam.name}</td>
+                            <td text-center"><a href="../pageclubs/club.html?info=${matchList.homeTeam.id}" class="${htColor}">${matchList.homeTeam.name}</a></td>
                             <td class="text-center">${homeScore} - ${awayScore}</td>
-                            <td class="${atColor} text-center">${matchList.awayTeam.name}</td> 
+                            <td text-center"><a href="../pageclubs/club.html?info=${matchList.awayTeam.id}" class="${atColor}">${matchList.awayTeam.name}</a></td> 
                             <td class="text-center">${matchList.matchday}</td>
                             <td class="text-center"><a ${actionSet}="detailMatch(${matchList.id})" class="linkDetail badge ${colorSet}"
                                 data-toggle="tooltip" data-placement="top" title="Klik untuk detail pertandingan">${matchList.status}</a></td> 
