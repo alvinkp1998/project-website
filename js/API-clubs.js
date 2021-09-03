@@ -21,7 +21,7 @@ const getAPIKlasemen = async () => {
         dataKlasemen.forEach(data => {
             rowTables += `
                 <tr>
-                <th class="text-center">${data.name}</th>
+                <th class="text-center"><a href="club.html?info=${data.id}" class="text-dark">${data.name}</a></th>
                 <td class="w-auto"><img src="${data.crestUrl}" alt="logoTeam"></td>
                 <td class="text-center">${data.venue}</td>
             </tr>`
