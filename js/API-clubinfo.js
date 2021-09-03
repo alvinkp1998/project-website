@@ -93,7 +93,7 @@ const teamDetail = async () => {
         $(logoClub).html(logoImg)
         $(clubName).html(clubname)
         $(venue).html("Venue : "+stadion)
-        $(address).html(alamat)
+        $(address).html("Address : "+alamat)
         $(linkWeb).html(web)
 
         $(playerList).html(rowTables)
